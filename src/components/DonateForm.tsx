@@ -21,13 +21,14 @@ const DonateForm = () => {
   ];
 
   const causes = [
-    { id: "education", name: "Education for All", description: "Supporting quality education in underserved communities" },
-    { id: "healthcare", name: "Healthcare Access", description: "Providing medical care and health resources" },
-    { id: "environment", name: "Environmental Protection", description: "Conservation and sustainability initiatives" },
-    { id: "poverty", name: "Poverty Alleviation", description: "Economic empowerment and basic needs support" }
+    { id: "health", name: "Health", description: "Creating awareness and training regarding various diseases that occur in the human body" },
+    { id: "environment", name: "Environment", description: "Working on environmental protection and conservation" },
+    { id: "agriculture", name: "Agriculture", description: "Increasing carbon in the soil for soil health and sustainable farming" },
+    { id: "education", name: "Education", description: "Creating perspective in humans and promoting quality education" },
+    { id: "intelligence", name: "Human Intelligence", description: "Working on rules and procedures to make humans intelligent" }
   ];
 
-  const donationAmounts = ["$25", "$50", "$100", "$250", "$500"];
+  const donationAmounts = ["₹5,000", "₹10,000", "₹25,000", "₹50,000", "₹1,00,000"];
 
   const renderStep = () => {
     switch (currentStep) {
@@ -44,14 +45,14 @@ const DonateForm = () => {
                   key={cause.id}
                   className={`p-4 rounded-lg border cursor-pointer transition-all duration-200 ${
                     selectedCause === cause.id
-                      ? "border-ngo-yellow bg-ngo-yellow/5"
-                      : "border-border hover:border-ngo-yellow/50"
+                      ? "border-earth-primary bg-earth-primary/5"
+                      : "border-border hover:border-earth-primary/50"
                   }`}
                   onClick={() => setSelectedCause(cause.id)}
                 >
                   <div className="flex items-start space-x-3">
                     <div className={`w-4 h-4 rounded-full border-2 mt-1 ${
-                      selectedCause === cause.id ? "bg-ngo-yellow border-ngo-yellow" : "border-border"
+                      selectedCause === cause.id ? "bg-earth-primary border-earth-primary" : "border-border"
                     }`}></div>
                     <div className="space-y-1">
                       <h3 className="font-semibold text-foreground">{cause.name}</h3>
@@ -77,8 +78,8 @@ const DonateForm = () => {
                   key={amount}
                   className={`p-4 rounded-lg border text-center transition-all duration-200 ${
                     donationAmount === amount
-                      ? "border-ngo-yellow bg-ngo-yellow text-primary"
-                      : "border-border hover:border-ngo-yellow/50"
+                      ? "border-earth-primary bg-earth-primary text-white"
+                      : "border-border hover:border-earth-primary/50"
                   }`}
                   onClick={() => setDonationAmount(amount)}
                 >
@@ -91,9 +92,12 @@ const DonateForm = () => {
               <Input
                 id="custom-amount"
                 type="number"
-                placeholder="Enter amount"
-                value={donationAmount.replace("$", "")}
-                onChange={(e) => setDonationAmount(`$${e.target.value}`)}
+                placeholder="Enter amount in ₹"
+                value={donationAmount.replace("₹", "").replace(/,/g, "")}
+                onChange={(e) => {
+                  const formattedValue = e.target.value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                  setDonationAmount(`₹${formattedValue}`);
+                }}
               />
             </div>
           </div>
@@ -135,6 +139,7 @@ const DonateForm = () => {
                       <SelectValue placeholder="Select country" />
                     </SelectTrigger>
                     <SelectContent>
+                      <SelectItem value="in">India</SelectItem>
                       <SelectItem value="us">United States</SelectItem>
                       <SelectItem value="uk">United Kingdom</SelectItem>
                       <SelectItem value="ca">Canada</SelectItem>
@@ -192,7 +197,7 @@ const DonateForm = () => {
         return (
           <div className="text-center space-y-6">
             <div className="space-y-4">
-              <CheckCircle className="w-16 h-16 text-green-500 mx-auto" />
+              <CheckCircle className="w-16 h-16 text-earth-primary mx-auto" />
               <h2 className="text-2xl font-bold text-primary">Thank You!</h2>
               <p className="text-muted-foreground">Your donation has been processed successfully</p>
             </div>
@@ -228,15 +233,15 @@ const DonateForm = () => {
                   <div
                     key={index}
                     className={`flex items-center space-x-2 ${
-                      index + 1 <= currentStep ? "text-ngo-yellow" : "text-muted-foreground"
+                      index + 1 <= currentStep ? "text-earth-primary" : "text-muted-foreground"
                     }`}
                   >
                     <div
                       className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
                         index + 1 < currentStep
-                          ? "bg-ngo-yellow text-primary"
+                          ? "bg-earth-primary text-white"
                           : index + 1 === currentStep
-                          ? "bg-ngo-yellow text-primary"
+                          ? "bg-earth-primary text-white"
                           : "bg-muted text-muted-foreground"
                       }`}
                     >
@@ -252,7 +257,7 @@ const DonateForm = () => {
               </div>
               <div className="w-full bg-muted rounded-full h-2">
                 <div
-                  className="bg-ngo-yellow h-2 rounded-full transition-all duration-300"
+                  className="bg-earth-primary h-2 rounded-full transition-all duration-300"
                   style={{ width: `${(currentStep / steps.length) * 100}%` }}
                 ></div>
               </div>
@@ -272,7 +277,7 @@ const DonateForm = () => {
               </Button>
               {currentStep < 5 ? (
                 <Button
-                  variant="cta"
+                  variant="earth"
                   onClick={() => setCurrentStep(Math.min(5, currentStep + 1))}
                   disabled={
                     (currentStep === 1 && !selectedCause) ||
@@ -283,7 +288,7 @@ const DonateForm = () => {
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               ) : (
-                <Button variant="cta" onClick={() => window.location.href = "/"}>
+                <Button variant="earth" onClick={() => window.location.href = "/"}>
                   Return Home
                   <Heart className="w-4 h-4 ml-2" />
                 </Button>

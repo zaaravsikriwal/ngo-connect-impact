@@ -31,8 +31,10 @@ const Header = () => {
             <a href="#get-involved" className="text-foreground hover:text-primary transition-colors">
               Get Involved
             </a>
-            <a href="#donate" className="text-foreground hover:text-primary transition-colors">
-              Donate
+            <a href="#donate" className="relative">
+              <Button variant="earth" size="sm" className="font-semibold">
+                Donate Now
+              </Button>
             </a>
             <a href="#contact" className="text-foreground hover:text-primary transition-colors">
               Contact
@@ -70,8 +72,10 @@ const Header = () => {
               <a href="#get-involved" className="text-foreground hover:text-primary transition-colors">
                 Get Involved
               </a>
-              <a href="#donate" className="text-foreground hover:text-primary transition-colors">
-                Donate
+              <a href="#donate">
+                <Button variant="earth" size="sm" className="font-semibold w-full">
+                  Donate Now
+                </Button>
               </a>
               <a href="#contact" className="text-foreground hover:text-primary transition-colors">
                 Contact
