@@ -1,4 +1,5 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
 
 const Team = () => {
   const teamMembers = [
@@ -16,11 +17,13 @@ const Team = () => {
     { name: "Emily Chen", role: "Community Organizer", initials: "EC" },
   ];
 
+  const containerRef = useGSAPAnimations();
+
   return (
-    <section className="py-20 bg-muted/30">
+    <section ref={containerRef} className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center space-y-12">
-          <div className="space-y-4 animate-fade-in">
+          <div className="space-y-4 gsap-fade-up">
             <h2 className="text-4xl lg:text-5xl font-bold text-primary">
               Team
             </h2>
@@ -34,12 +37,11 @@ const Team = () => {
             {teamMembers.map((member, index) => (
               <div
                 key={index}
-                className="bg-card rounded-2xl p-6 shadow-card hover:shadow-soft transition-all duration-300 hover:scale-105 space-y-4 animate-scale-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="gsap-scale bg-card rounded-2xl p-6 shadow-card hover:shadow-earth transition-all duration-300 space-y-4"
               >
                 <Avatar className="w-16 h-16 mx-auto">
                   <AvatarImage src="" alt={member.name} />
-                  <AvatarFallback className="bg-gradient-cta text-primary font-semibold">
+                  <AvatarFallback className="bg-gradient-earth text-white font-semibold">
                     {member.initials}
                   </AvatarFallback>
                 </Avatar>

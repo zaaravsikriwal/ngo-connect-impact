@@ -17,6 +17,8 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         cta: "bg-ngo-yellow text-primary hover:bg-ngo-yellow-dark shadow-button transition-all duration-300 hover:scale-105 font-semibold",
         "cta-outline": "border-2 border-ngo-yellow text-primary bg-transparent hover:bg-ngo-yellow hover:text-primary transition-all duration-300",
+        "earth": "bg-earth-primary text-white hover:bg-earth-dark shadow-earth transition-all duration-300 hover:scale-105 font-semibold",
+        "earth-outline": "border-2 border-earth-primary text-earth-primary bg-transparent hover:bg-earth-primary hover:text-white transition-all duration-300",
       },
       size: {
         default: "h-10 px-4 py-2",

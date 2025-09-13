@@ -1,32 +1,35 @@
 import { Calendar, Users, DollarSign } from "lucide-react";
+import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
 
 const Impact = () => {
+  const containerRef = useGSAPAnimations();
+  
   const stats = [
     {
       icon: Calendar,
       number: "2021",
       label: "Year Established",
-      color: "text-ngo-pink"
+      color: "text-earth-primary"
     },
     {
       icon: Users,
-      number: "500K+",
+      number: "500",
       label: "Communities Served",
-      color: "text-ngo-blue"
+      color: "text-nature-leaf"
     },
     {
       icon: DollarSign,
-      number: "$5M",
-      label: "In Donations",
-      color: "text-ngo-green"
+      number: "5",
+      label: "Million in Donations",
+      color: "text-earth-emerald"
     }
   ];
 
   return (
-    <section className="py-20 bg-gradient-impact">
+    <section ref={containerRef} className="py-20 bg-gradient-earth">
       <div className="container mx-auto px-4">
         <div className="text-center space-y-12">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-16">
+          <h2 className="gsap-fade-up text-4xl lg:text-5xl font-bold text-white mb-16">
             Our Impact
           </h2>
           
@@ -36,17 +39,16 @@ const Impact = () => {
               return (
                 <div
                   key={index}
-                  className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center space-y-4 shadow-card hover:shadow-soft transition-all duration-300 hover:scale-105 animate-fade-in"
-                  style={{ animationDelay: `${index * 0.2}s` }}
+                  className="gsap-scale bg-white/15 backdrop-blur-sm rounded-2xl p-8 text-center space-y-4 shadow-earth hover:shadow-soft transition-all duration-300"
                 >
-                  <div className={`inline-flex items-center justify-center w-16 h-16 ${stat.color} bg-white/20 rounded-full mb-4`}>
+                  <div className="gsap-float inline-flex items-center justify-center w-16 h-16 text-white bg-white/25 rounded-full mb-4">
                     <Icon className="w-8 h-8" />
                   </div>
                   <div className="space-y-2">
-                    <h3 className="text-4xl font-bold text-white">
-                      {stat.number}
+                    <h3 className="gsap-counter text-4xl font-bold text-white" data-count={stat.number}>
+                      0
                     </h3>
-                    <p className="text-white/80 font-medium">
+                    <p className="text-white/90 font-medium">
                       {stat.label}
                     </p>
                   </div>

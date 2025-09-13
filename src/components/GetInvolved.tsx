@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import getInvolvedImage from "@/assets/get-involved.png";
+import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
 import { Heart, Users, Handshake, Globe } from "lucide-react";
 
 const GetInvolved = () => {

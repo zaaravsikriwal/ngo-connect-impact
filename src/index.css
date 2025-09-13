@@ -44,6 +44,19 @@ All colors MUST be HSL.
     --ngo-blue: 200 95% 85%;
     --ngo-green: 120 60% 85%;
     --ngo-purple: 260 75% 85%;
+
+    /* Earth-Connected Green Colors */
+    --earth-primary: 142 72% 35%;
+    --earth-light: 142 52% 85%;
+    --earth-dark: 142 82% 25%;
+    --earth-emerald: 160 84% 39%;
+    --earth-sage: 120 25% 55%;
+    --earth-forest: 140 100% 20%;
+    
+    /* Nature-Inspired Colors */
+    --nature-leaf: 120 60% 50%;
+    --nature-moss: 80 40% 45%;
+    --nature-mint: 152 68% 75%;
     
     /* Community Banner */
     --community-bg: 345 75% 88%;
@@ -53,11 +66,14 @@ All colors MUST be HSL.
     --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(var(--muted)));
     --gradient-impact: linear-gradient(135deg, hsl(var(--ngo-pink)), hsl(var(--ngo-blue)));
     --gradient-cta: linear-gradient(135deg, hsl(var(--ngo-yellow)), hsl(var(--ngo-yellow-dark)));
+    --gradient-earth: linear-gradient(135deg, hsl(var(--earth-primary)), hsl(var(--earth-emerald)));
+    --gradient-nature: linear-gradient(135deg, hsl(var(--nature-leaf)), hsl(var(--nature-mint)));
     
     /* Shadows */
     --shadow-soft: 0 4px 20px -5px hsl(var(--foreground) / 0.1);
     --shadow-card: 0 2px 12px -3px hsl(var(--foreground) / 0.08);
     --shadow-button: 0 2px 8px -2px hsl(var(--ngo-yellow) / 0.3);
+    --shadow-earth: 0 8px 25px -5px hsl(var(--earth-primary) / 0.2);
 
     --radius: 0.75rem;
 
